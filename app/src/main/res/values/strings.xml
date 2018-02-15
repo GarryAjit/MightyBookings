@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Mighty Bookings</string>
+    <string name="seat_class">Select your seat class</string>
+</resources>
