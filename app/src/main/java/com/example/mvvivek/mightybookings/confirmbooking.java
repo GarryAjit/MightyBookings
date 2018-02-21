@@ -1,6 +1,7 @@
 package com.example.mvvivek.mightybookings;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +21,8 @@ TextView hallname;
     TextView usernumber;
     Button cancel;
     TextView terms;
+    TextView mighty4;
+    TextView bill;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +39,11 @@ TextView hallname;
         usernumber=(TextView) findViewById(R.id.number);
         cancel=(Button)findViewById(R.id.cancel);
         terms=(TextView)findViewById(R.id.textView32) ;
+        mighty4 = (TextView) findViewById(R.id.mighty4);
+        bill = (TextView) findViewById(R.id.bill);
+        Typeface custom = Typeface.createFromAsset(getAssets(),"fonts/Lobster-Regular.ttf");
+        mighty4.setTypeface(custom);
+
         Intent i = getIntent();
         Bundle b = i.getExtras();
         final String theatre = (String) b.get("theatre");
@@ -55,6 +63,7 @@ TextView hallname;
         seats.setText(noOfSeats);
         username.setText(name);
         usernumber.setText(number);
+        bill.setText("Rs "+180*5);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,10 +1,12 @@
 package com.example.mvvivek.mightybookings;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,8 +19,11 @@ public class user_info extends AppCompatActivity {
 
     Button btn;
 EditText username;
+    TextView mighty2;
     EditText usernumber;
     EditText useremail;
+    String defaultemail="contact@rootnode.co.in";
+    int fname=1,fphone=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +34,11 @@ EditText username;
          username=(EditText)findViewById(R.id.editText);
          usernumber=(EditText)findViewById(R.id.editText2);
          useremail=(EditText)findViewById(R.id.editText3);
+
+        mighty2 = (TextView) findViewById(R.id.mighty2);
+
+        Typeface custom = Typeface.createFromAsset(getAssets(),"fonts/Lobster-Regular.ttf");
+        mighty2.setTypeface(custom);
 
         Intent i = getIntent();
         Bundle b = i.getExtras();
@@ -51,19 +61,52 @@ EditText username;
                         email.isEmpty() ) {
                     Toast.makeText(user_info.this, "Please fill in all the fields", Toast.LENGTH_SHORT).show();
                 }
-                else{
-                Intent i= new Intent(user_info.this, confirmbooking.class);
 
-                i.putExtra("theatre",theatre);
-                i.putExtra("movie",movie);
-                i.putExtra("seatclass",seatclass);
-                i.putExtra("noOfSeats",noOfSeats);
-                i.putExtra("timeSlot",timeSlot);
-                i.putExtra("dt",dt);
-                i.putExtra("name",name);
-                i.putExtra("number",number);
-                i.putExtra("email",email);
-                startActivity(i);}
+                if(name.isEmpty())
+                {
+                    username.setError("Please enter your name");
+                }
+                if(number.length()!=10)
+                {
+                    usernumber.setError("Please enter a valid number");
+                }
+                if(email.length()>0 && !Patterns.EMAIL_ADDRESS.matcher(email).matches())
+                {
+                    useremail.setError("Please enter a valid email id");
+                }
+
+                else
+                {
+                    if(email.length()>0 && number.length()==10 && !name.isEmpty())
+                    {
+                        Intent i= new Intent(user_info.this, confirmbooking.class);
+                        i.putExtra("theatre",theatre);
+                        i.putExtra("movie",movie);
+                        i.putExtra("seatclass",seatclass);
+                        i.putExtra("noOfSeats",noOfSeats);
+                        i.putExtra("timeSlot",timeSlot);
+                        i.putExtra("dt",dt);
+                        i.putExtra("name",name);
+                        i.putExtra("number",number);
+                        i.putExtra("email",email);
+                        startActivity(i);
+                    }
+                    else if(email.length()==0 && number.length()==10 && !name.isEmpty())
+                    {
+                        Intent i= new Intent(user_info.this, confirmbooking.class);
+                        i.putExtra("theatre",theatre);
+                        i.putExtra("movie",movie);
+                        i.putExtra("seatclass",seatclass);
+                        i.putExtra("noOfSeats",noOfSeats);
+                        i.putExtra("timeSlot",timeSlot);
+                        i.putExtra("dt",dt);
+                        i.putExtra("name",name);
+                        i.putExtra("number",number);
+                        i.putExtra("email",defaultemail);
+                        startActivity(i);
+                    }
+
+                }
             }
         });
 

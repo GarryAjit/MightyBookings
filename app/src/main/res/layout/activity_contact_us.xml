@@ -142,7 +142,7 @@
         app:layout_constraintHorizontal_bias="0.56" />
 
     <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:background="@drawable/white_gray_border_bottom"
         android:id="@+id/appbarlayout"
@@ -170,6 +170,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
+                    android:id="@+id/mighty3"
                     android:layout_toRightOf="@id/logo"
                     android:layout_marginLeft="15dp"
                     android:text="MightyBookings"

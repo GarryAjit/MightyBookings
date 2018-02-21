@@ -2,6 +2,7 @@ package com.example.mvvivek.mightybookings;
 
 import android.animation.ValueAnimator;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Handler;
 import android.support.v4.view.MenuItemCompat;
@@ -19,6 +20,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    TextView mighty;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +34,10 @@ public class MainActivity extends AppCompatActivity {
         TextView tv33 = (TextView)findViewById(R.id.tv33);
         Button denzongbutton = (Button) findViewById(R.id.denzongbutton);
         Button imperialbutton = (Button) findViewById(R.id.imperialbutton);
+        mighty = (TextView) findViewById(R.id.mighty);
 
+        Typeface custom = Typeface.createFromAsset(getAssets(),"fonts/Lobster-Regular.ttf");
+        mighty.setTypeface(custom);
 
         tv3.setOnClickListener(new View.OnClickListener() {
             @Override

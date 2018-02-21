@@ -1,6 +1,7 @@
 package com.example.mvvivek.mightybookings;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
@@ -23,7 +25,7 @@ public class ticket_info extends AppCompatActivity {
 
     Spinner s1,s2,s3,s4;
     Button btnDetails;
-
+    TextView mighty1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +37,10 @@ public class ticket_info extends AppCompatActivity {
         s2 = (Spinner) findViewById(R.id.spinner2);
         s3 = (Spinner) findViewById(R.id.spinner3);
         s4 = (Spinner) findViewById(R.id.spinner4);
+        mighty1 = (TextView) findViewById(R.id.mighty1);
 
+        Typeface custom = Typeface.createFromAsset(getAssets(),"fonts/Lobster-Regular.ttf");
+        mighty1.setTypeface(custom);
         Intent i = getIntent();
         Bundle b=i.getExtras();
         final String theatre = (String) b.get("theatre");
@@ -49,6 +54,11 @@ public class ticket_info extends AppCompatActivity {
                         s3.getSelectedItem().toString().trim().equals("No. Of Seats")||
                         s4.getSelectedItem().toString().trim().equals("Date") ) {
                     Toast.makeText(ticket_info.this, "Please fill in all the fields", Toast.LENGTH_SHORT).show();
+                }
+
+                if(s1.getSelectedItem().toString().trim().equals("Select your seat class"))
+                {
+
                 }
                 else{
                 Intent i= new Intent(ticket_info.this, user_info.class);

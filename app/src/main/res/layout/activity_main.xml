@@ -9,12 +9,59 @@
     tools:context="com.example.mvvivek.mightybookings.MainActivity">
 
 
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/white_gray_border_bottom"
+        android:id="@+id/appbarlayout">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/toolbar">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/mb1"
+                    android:background="#53E3A6"
+                    android:id="@+id/logo"
+                    android:layout_centerVertical="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/logo"
+                    android:layout_marginLeft="15dp"
+                    android:id="@+id/mighty"
+                    android:text="MightyBookings"
+                    android:textColor="#000"
+                    android:textSize="20sp"/>
+
+
+
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.Toolbar>
+
+
+    </android.support.design.widget.AppBarLayout>
+
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/scr1"
+        android:foregroundGravity="center"
+        android:layout_alignParentBottom="true"
         android:layout_below="@+id/appbarlayout"
-        android:layout_marginTop="20dp">
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,18 +73,22 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/denzong">
+                android:id="@+id/denzong"
+                android:layout_gravity="center"
+                android:gravity="center">
 
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="450dp"
-                    app:cardBackgroundColor="#8000">
+                    app:cardBackgroundColor="#8000"
+                    android:layout_gravity="center">
 
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/rel1">
+                        android:id="@+id/rel1"
+                        android:layout_marginTop="10dp">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -63,11 +114,9 @@
                                 android:layout_width="211dp"
                                 android:layout_height="150dp"
                                 android:src="@drawable/padman"
-                                android:id="@+id/imageView2"
+
                                 android:layout_weight="1"
-                                android:layout_alignTop="@+id/lin1"
-                                android:layout_alignEnd="@+id/tv2"
-                                android:layout_marginEnd="14dp" />
+                                android:id="@+id/imageView2" />
 
                         </LinearLayout>
 
@@ -88,65 +137,34 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tv2"
-                            android:text="Watch Trailer"
-                            android:textColor="#06f20e"
+                            android:text="  Watch Trailer"
+                            android:textColor="#067aff"
                             android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:textAlignment="gravity"
                             android:layout_marginTop="10dp"
                             android:textStyle="bold"
                             android:textSize="18sp"
                             android:id="@+id/tv3"/>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/tv3"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="10dp"
-                            android:id="@+id/lin2">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="11:00 AM"
-                                android:textAlignment="center"
-                                android:background="@drawable/rounded_button"
-                                android:textColor="#11eef2"
-                                android:textSize="20sp"
-                                android:layout_weight="0.5" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="02:15 AM"
-                                android:textAlignment="center"
-                                android:background="@drawable/rounded_button"
-                                android:textColor="#11eef2"
-                                android:textSize="20sp"
-                                android:layout_weight="0.5" />
-
-
-                        </LinearLayout>
-
 
                         <android.support.v7.widget.AppCompatButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/lin2"
                             android:layout_marginTop="20dp"
-                            android:layout_centerHorizontal="true"
-                            android:text="book now"
                             android:id="@+id/denzongbutton"
+                            android:text="  book now"
                             android:background="@drawable/rounded_button"
-                            android:textColor="#11eef2"
-                            android:padding="15dp"/>
-
-
+                            android:textColor="#2a5b46"
+                            android:padding="15dp"
+                            android:drawableLeft="@drawable/ic_action_name"
+                            android:layout_below="@+id/tv3"
+                            android:layout_centerHorizontal="true" />
 
                     </RelativeLayout>
 
 
                 </android.support.v7.widget.CardView>
-
 
 
             </LinearLayout>
@@ -158,18 +176,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@id/denzong"
-                android:layout_marginTop="20dp">
+                >
 
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="450dp"
-                    app:cardBackgroundColor="#8000">
+                    android:layout_height="430dp"
+                    app:cardBackgroundColor="#8000"
+                    android:layout_marginTop="5dp">
 
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/rell1">
+                        android:id="@+id/rell1"
+                        android:layout_marginTop="10dp">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -218,66 +238,26 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tv22"
                             android:text="Watch Trailer"
-                            android:textColor="#06f20e"
+                            android:textColor="#067aff"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
                             android:textStyle="bold"
                             android:textSize="18sp"
                             android:id="@+id/tv33"/>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/tv33"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="10dp"
-                            android:id="@+id/linn2">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="11:30 AM"
-                                android:textAlignment="center"
-                                android:background="@drawable/rounded_button"
-                                android:textColor="#11eef2"
-                                android:textSize="20sp"
-                                android:layout_weight="0.5" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="02:30 AM"
-                                android:textAlignment="center"
-                                android:background="@drawable/rounded_button"
-                                android:textColor="#11eef2"
-                                android:textSize="20sp"
-                                android:layout_weight="0.5" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="05:30 AM"
-                                android:textAlignment="center"
-                                android:background="@drawable/rounded_button"
-                                android:textColor="#11eef2"
-                                android:textSize="20sp"
-                                android:layout_weight="0.5" />
-
-
-                        </LinearLayout>
-
 
                         <android.support.v7.widget.AppCompatButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/linn2"
                             android:layout_marginTop="20dp"
                             android:id="@+id/imperialbutton"
-                            android:layout_centerHorizontal="true"
-                            android:text="book now"
+                            android:text="  book now"
                             android:background="@drawable/rounded_button"
-                            android:textColor="#11eef2"
-                            android:padding="15dp"/>
+                            android:drawableLeft="@drawable/ic_action_name"
+                            android:textColor="#2a5b46"
+                            android:padding="15dp"
+                            android:layout_below="@+id/tv33"
+                            android:layout_centerHorizontal="true" />
 
                     </RelativeLayout>
 
@@ -291,50 +271,6 @@
         </LinearLayout>
 
     </ScrollView>
-
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/white_gray_border_bottom"
-        android:id="@+id/appbarlayout">
-
-        <android.support.v7.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/toolbar">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="48dp"
-                    android:src="@drawable/mb1"
-                    android:background="#53E3A6"
-                    android:id="@+id/logo"
-                    android:layout_centerVertical="true"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/logo"
-                    android:layout_marginLeft="15dp"
-                    android:text="MightyBookings"
-                    android:textColor="#000"
-                    android:textSize="20sp"/>
-
-
-
-
-            </RelativeLayout>
-
-
-        </android.support.v7.widget.Toolbar>
-
-
-    </android.support.design.widget.AppBarLayout>
 
 
 </RelativeLayout>
